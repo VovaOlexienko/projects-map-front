@@ -41,31 +41,29 @@ const ProjectsView = ({
   staticFieldsComponent: ReactElement;
 } & LoaderStruct) => {
   return (
-    <div className="w-100 py-3" style={{ minHeight: "100vh" }}>
-      <div className="container">
-        <div className="row  row-cols-2 row-cols-xl-3 row-cols-xxl-4 g-4">
-          {projects?.map((project) => (
-            <div className="col" key={project.id}>
-              <div className="card h-100 shadow-sm position-relative">
-                <div className="card-header d-flex justify-content-between align-items-center">
-                  {Children.map(headerComponent, (child) => {
-                    return cloneElement(child, { data: { project, groupId } });
-                  })}
-                </div>
-                <div className="card-body d-flex flex-column justify-content-between">
-                  <div>
-                    <p className="card-text">
-                      {Children.map(staticFieldsComponent, (child) => {
-                        return cloneElement(child, { data: { project } });
-                      })}
-                    </p>
-                    <ProjectDetails groupId={groupId} projectId={project.id} showLoader={showLoader} />
-                  </div>
+    <div className="pb-3 container">
+      <div className="row  row-cols-2 row-cols-xl-3 row-cols-xxl-4 g-4">
+        {projects?.map((project) => (
+          <div className="col" key={project.id}>
+            <div className="card h-100 shadow-sm position-relative">
+              <div className="card-header d-flex justify-content-between align-items-center">
+                {Children.map(headerComponent, (child) => {
+                  return cloneElement(child, { data: { project, groupId } });
+                })}
+              </div>
+              <div className="card-body d-flex flex-column justify-content-between">
+                <div>
+                  <p className="card-text">
+                    {Children.map(staticFieldsComponent, (child) => {
+                      return cloneElement(child, { data: { project } });
+                    })}
+                  </p>
+                  <ProjectDetails groupId={groupId} projectId={project.id} showLoader={showLoader} />
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );

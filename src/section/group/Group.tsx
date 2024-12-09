@@ -51,7 +51,7 @@ export const GroupView = ({
   return (
     <FormProvider {...formInstance}>
       <Form>
-        <div style={{ height: "10vh" }}>
+        <div style={{ height: "100px" }}>
           <div className="bg-white pb-3">
             <div className="container">
               <div className="row pt-3 align-items-center position-sticky top-0 z-3">
@@ -63,7 +63,7 @@ export const GroupView = ({
           </div>
           <hr className="mt-0" />
         </div>
-        <div className="overflow-y-auto" style={{ height: "90vh" }}>
+        <div className="overflow-y-auto" style={{ height: `${window.innerHeight - 100}px` }}>
           {!showLoader && group?.projects?.length === 0 ? (
             <BackgroundHint>Створіть новий проєкт</BackgroundHint>
           ) : (

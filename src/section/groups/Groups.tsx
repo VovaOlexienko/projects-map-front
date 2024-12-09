@@ -50,7 +50,7 @@ const GroupsView = ({
   groupItemComponent: ReactElement;
 }) => {
   return (
-    <div className="d-flex h-100">
+    <div className="d-flex h-100 overflow-hidden">
       <div className="d-flex">
         <Sidebar
           backgroundColor="#202123"
